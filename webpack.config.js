@@ -24,7 +24,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'css-loader!stylus-loader',
+        loader: 'style-loader!css-loader',
       },
       {
         test: /\.html$/,

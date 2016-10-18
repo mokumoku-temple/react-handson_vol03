@@ -7,7 +7,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint scripts/**/*.js"
   },
   "author": "Keita Moromizato <keita.moromi@gmail.com>",
   "license": "MIT",
@@ -33,6 +33,7 @@
     "material-ui": "^0.16.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-router": "^2.8.1",
     "react-tap-event-plugin": "^1.0.0"
   }
 }
