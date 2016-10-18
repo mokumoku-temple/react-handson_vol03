@@ -1,4 +1,4 @@
-# React.js HandOn #3
+# React.js HandsOn #3
 
 ハンズオンのベースになるリポジトリです。このコードを修正していきます。
 
