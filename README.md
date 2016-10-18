@@ -5,6 +5,7 @@
 ## Run
 
 ```
+$ git clone https://github.com/mokumoku-temple/react-handson_vol03
 $ npm install
 $ npm start
 ```

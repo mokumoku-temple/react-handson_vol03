@@ -4,6 +4,10 @@
   "private": true,
   "description": "",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mokumoku-temple/react-handson_vol02"
+  },
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server",
