@@ -10,7 +10,7 @@ import './index.css';
 
 injectTapEventPlugin();
 
-class App extends Component {
+class Root extends Component {
 
   constructor(props) {
     super(props);
@@ -51,4 +51,4 @@ class App extends Component {
   }
 }
 
-render(<App />, document.getElementById('app'));
+render(<Root />, document.getElementById('app'));
