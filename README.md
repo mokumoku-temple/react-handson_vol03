@@ -2,6 +2,13 @@
 
 ハンズオンのベースになるリポジトリです。このコードを修正していきます。
 
+## 技術要素
+* React.js
+* [Material UI](http://www.material-ui.com)
+* [React Router](https://github.com/ReactTraining/react-router)（今回学ぶこと）
+* [Webpack](https://webpack.github.io/)
+* [Style Loader](https://github.com/webpack/style-loader)
+
 ## 準備&動作確認
 
 ```
@@ -13,7 +20,7 @@ $ npm start
 `localhost:3000`にアクセスすると、下記のページが表示されます。ハンバーガーボタンを押すとメニューが表示されます。
 このサンプルを、`react-router`を使いながらSPA（Single Page Application）化していきます。
 
-![](./images/01.png)
+![](./images/1.png)
 
 ## ハンズオン
 ### ページの追加
@@ -118,9 +125,9 @@ export default class App extends Component {
           <MenuItem>Home</MenuItem>
           <MenuItem>List</MenuItem>
         </Drawer>
-        {/*ここまでヘッダ部分*/}
+        {/* ここまでヘッダ部分 */}
 
-        {/*ここにページの要素が入る*/}
+        {/* ここにページの要素が入る */}
         {this.props.children}
       </div>
     );
@@ -174,8 +181,13 @@ class Root extends Component {
 
 ここまでで、ルーティングの設定は完了です。次のURLにアクセスしてみましょう。
 
-* `http://localhost:3000/#/`
-* `http://localhost:3000/#/list`
+#### `http://localhost:3000/#/`
+
+![](./images/2-1.png)
+
+#### `http://localhost:3000/#/list`
+
+![](./images/2-2.png)
 
 ### Linkの設定
 
@@ -242,6 +254,9 @@ export default [
 importを追加。
 
 ```js
+import { Link } from 'react-router';
+import { List, ListItem } from 'material-ui/List';
+
 import Items from './items';
 ```
 
@@ -256,7 +271,7 @@ export default class ListPage extends Component {
           {Items.map(item => <Link key={item.id} to={`/list/${item.id}`}><ListItem primaryText={item.title} /></Link>)}
         </List>
 
-        {/*ここにdetailが表示される*/}
+        {/* ここにdetailが表示される */}
         {this.props.children}
       </div>
     );
@@ -311,13 +326,18 @@ pathで指定している`/:id`は、「任意の文字列を許容し、その�
 <Route path="/list" component={List}>
   <IndexRoute component={Detail} />
 
-  <Route path="/:id" component={Detail} />
+  <Route path=":id" component={Detail} />
 </Route>
 ```
 
-## Stack
+### 完成
+リストの要素をクリックすると、詳細情報が表示されます。
 
-* React
-* Material-ui
-* Webpack
-* StyleLoader
+![](./images/4-1.png)
+
+![](./images/4-2.png)
+
+## Try It!
+* 自分でコンポーネント、ルートを追加してみる
+* cssファイルを追加してみる
+* less/sass/stylusなどを組み込んでみる
