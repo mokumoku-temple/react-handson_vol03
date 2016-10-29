@@ -87,6 +87,14 @@ export default class ListPage extends Component {
 
 ヘッダ部分など、どのページでも共通で使うコンポーネントを`app/index.js`に書きます。
 
+`scripts/containers/app/index.js`を新規作成して、そこに`scripts/index.js`の内容をコピペします。
+コピペした後に、`scripts/containers/app/index.js`に次の変更を加えます。
+* `MuiThemeProvider`のタグを削除（閉じタグも忘れずに）
+* `injectTapEventPlugin()`を削除
+* 最後の閉じdivタグの前に、`{this.props.children}`を追加
+
+最終的には、次のようなコードになります。（よくわからなくなったらコピペしましょう）
+
 #### scripts/containers/app/index.js
 
 ```js
@@ -323,6 +331,10 @@ pathで指定している`/:id`は、「任意の文字列を許容し、その�
 先ほどの`detail`では、`this.props.params.id`という形で、渡されたidを受け取っています。
 
 #### scripts/index.js
+
+```js
+import Detail from './containers/list/detail';
+```
 
 ```js
 <Route path="/list" component={List}>
