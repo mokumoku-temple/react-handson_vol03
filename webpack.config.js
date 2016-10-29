@@ -9,7 +9,7 @@ module.exports = {
   },
   devServer: {
     contentBase: 'out',
-    port: 3000,
+    port: 1029,
   },
   module: {
     loaders: [

@@ -18,7 +18,7 @@ $ npm install
 $ npm start
 ```
 
-`localhost:3000`にアクセスすると、下記のページが表示されます。ハンバーガーボタンを押すとメニューが表示されます。
+`localhost:1029`にアクセスすると、下記のページが表示されます。ハンバーガーボタンを押すとメニューが表示されます。
 このサンプルを、`react-router`を使いながらSPA（Single Page Application）化していきます。
 
 ![](./images/1.png)
@@ -182,11 +182,11 @@ class Root extends Component {
 
 ここまでで、ルーティングの設定は完了です。次のURLにアクセスしてみましょう。
 
-#### `http://localhost:3000/#/`
+#### `http://localhost:1029/#/`
 
 ![](./images/2-1.png)
 
-#### `http://localhost:3000/#/list`
+#### `http://localhost:1029/#/list`
 
 ![](./images/2-2.png)
 
