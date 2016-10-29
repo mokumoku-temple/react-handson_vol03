@@ -23,6 +23,10 @@ $ npm start
 
 ![](./images/1.png)
 
+## ディレクトリ構成
+
+今回は、主に`scripts`ディレクトリ以下のファイルを編集していきます。
+
 ## ハンズオン
 ### ページの追加
 `Home`と`List`という2つのページをもつアプリケーションを作成します。
@@ -45,7 +49,7 @@ import Home from './containers/home';
 
 `home/index.js`と`list/index.js`は、次のようにします。JSXの部分は、ページの違いがわかれば何でも良いです。
 
-#### containers/home/index.js
+#### scripts/containers/home/index.js
 
 ```js
 import React, { Component } from 'react';
@@ -62,7 +66,7 @@ export default class HomePage extends Component {
 }
 ```
 
-#### containers/list/index.js
+#### scripts/containers/list/index.js
 
 ```js
 import React, { Component } from 'react';
@@ -81,12 +85,9 @@ export default class ListPage extends Component {
 
 ### 共通部分のコンポーネント
 
-今回は、よくあるアプリケーションのように、ヘッダ部分はどのページでも同じものを表示します。
-そのために、共通部分のコンポーネント`app/index.js`を作成します。
-内容は、既存の`index.js`から、`MuiThemeProvider`省き、コンポーネントの最後に`{this.props.children}`を追加したものです。
+ヘッダ部分など、どのページでも共通で使うコンポーネントを`app/index.js`に書きます。
 
-
-#### containers/app/index.js
+#### scripts/containers/app/index.js
 
 ```js
 import React, { Component } from 'react';
@@ -140,7 +141,7 @@ export default class App extends Component {
 
 ルーティングに必要なモジュールと、先ほど作成したコンポーネントを読み込みます。
 
-#### index.js
+#### scripts/index.js
 
 ```js
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
@@ -195,7 +196,7 @@ class Root extends Component {
 ページ遷移用のリンク（HTMLで言うところの`href`）を作成します。
 ヘッダのメニューにあるリストを、リンクに書き換えます。
 
-#### containers/app/index.js
+#### scripts/containers/app/index.js
 
 `import`を追加。
 
@@ -223,7 +224,7 @@ import { Link } from 'react-router';
 本当はajaxとかでデータを取ってきたら良いのですが、難しそうなのでやめておきました。
 Listのデータを別ファイルで定義して、読み込みます。コピペで良いです。
 
-#### containers/list/items.js
+#### scripts/containers/list/items.js
 
 ```js
 export default [
@@ -250,7 +251,7 @@ export default [
 
 次にリストページに、上で定義したアイテムを表示します。
 
-#### containers/list/index.js
+#### scripts/containers/list/index.js
 
 importを追加。
 
@@ -286,7 +287,7 @@ export default class ListPage extends Component {
 
 詳細を表示する`details`コンポーネントを作成します。
 
-#### containers/list/detail.js
+#### scripts/containers/list/detail.js
 
 ```js
 import React, { Component } from 'react';
@@ -321,7 +322,7 @@ export default class Detail extends Component {
 pathで指定している`/:id`は、「任意の文字列を許容し、その文字列を`id`という名前のパラメータとしてコンポーネントが受け取る」という意味です。
 先ほどの`detail`では、`this.props.params.id`という形で、渡されたidを受け取っています。
 
-#### index.js
+#### scripts/index.js
 
 ```js
 <Route path="/list" component={List}>
